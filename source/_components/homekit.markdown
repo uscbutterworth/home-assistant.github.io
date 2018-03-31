@@ -150,7 +150,18 @@ automation:
 
 ## {% linkable_title Configure Filter %}
 
-To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. By default no entity will be excluded. Keep in mind though that only supported components can be added.
+To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. By default no entity will be excluded. Keep in mind though that only supported components can be added. The filter will favor an include list over an exclude list (if one item is included, all others are automatically excluded).
+{% raw %}
+```yaml
+# Example configuration entry that only includes two entities:
+homekit:
+  auto_start: False
+  filter:
+    include_entities:
+      - alarm_control_panel.home_alarm
+      - switch.open_garage
+```
+{% endraw %}
 
 
 ## {% linkable_title Supported Components %}
